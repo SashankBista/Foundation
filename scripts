@@ -31,7 +31,7 @@ INSERT INTO Students VALUES
 (3, 'Nisha', 'nisha@email.com'), (4, 'Rohan', 'rohan@email.com'), 
 (5, 'Suman', 'suman@email.com'), (6, 'Pooja', 'pooja@email.com'), 
 (7, 'Aman', 'aman@email.com');
-
+ 
 INSERT INTO Clubs VALUES 
 (101, 'Music Club', 'R101', 'Mr. Raman'), 
 (102, 'Sports Club', 'R202', 'Ms. Sita'), 
