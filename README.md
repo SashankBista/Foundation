@@ -1,20 +1,31 @@
-# Student Club Database Management System
+# Computer Science Foundations: Task Portfolio
 
-## Task 3: Normalization & ER Diagramming
-This repository contains the database implementation for a Student Club system, evolved from a flat-file structure into a fully normalized **Third Normal Form (3NF)** schema.
+This repository contains the practical implementations for Tasks 1, 2, and 3.
 
-### Normalization Logic
-1. **2NF Implementation**: Separated the data into `Students` and `Clubs` to remove partial dependencies.
-2. **3NF Implementation**: Ensured that all non-key attributes (like `ClubMentor` or `Email`) depend solely on their respective Primary Keys (`ClubID` or `StudentID`), removing transitive dependencies.
+## Task 1: Secure Data Exchange
+- **Focus**: Encoding formats (Base64, Hex, URL) and Protocol security (TLS/HTTPS/SMTP).
+- **Files**: See `/Task_1_Secure_Data_Exchange` for diagrams showing data flow and encoding-based obfuscation risks.
 
-### ER Diagram
-The ER Diagram (found in the `/diagrams` folder) illustrates the **Many-to-Many** relationship between Students and Clubs, mediated by the `Membership` associative entity.
-- **Cardinality**: One Student -> Many Memberships; One Club -> Many Memberships.
+## Task 2: Classroom Seating Arrangement (P vs NP)
+- **Problem**: Arranging students based on friendship and city constraints.
+- **Complexity Analysis**: 
+  - **P vs NP**: Verification is O(n), discovery is O(n!).
+  - **Heuristics**: Implementation of "Most Constrained First" strategies to reduce search time.
+- **Visuals**: `/Task_2_Seating_Problem/complexity_graph.png` illustrates the growth of n! vs polynomial time.
 
-### SQL Operations 
-- **Schema Creation**: Tables are built with Foreign Key constraints to maintain referential integrity.
-- **Join Operations**: A three-way join is used to reassemble the normalized data into a human-readable report showing Student Name, Club Name, and Join Date.
+## Task 3: College Club Membership Management
+This section demonstrates full Database Normalization (1NF to 3NF).
 
-### Task 6: Reflection
-- **Redundancy**: Normalization reduced data repetition by storing club details (Room/Mentor) only once.
-- **Accuracy**: Data integrity is improved by preventing update anomalies; changing a club's room now only requires a single row update.
+### Normalization Steps:
+1. **1NF**: Atomic values confirmed; Composite Primary Key established.
+2. **2NF**: Separation of Student and Club entities to remove partial dependencies.
+3. **3NF**: Removal of transitive dependencies (e.g., ClubRoom/Mentor tied strictly to ClubID).
+
+### SQL Scripts:
+- Found in `/Task_3_Database_Management/schema_and_queries.sql`.
+- Includes Schema creation, Data insertion, and a 3-way JOIN query.
+
+### ER Diagram:
+- Found in `/Task_3_Database_Management/ER_Diagram.png`.
+- **Entities**: Students, Clubs, Membership.
+- **Relationship**: Many-to-Many (M:N) mediated by an associative table.
