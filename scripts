@@ -1,0 +1,40 @@
+-- DATABASE SETUP 
+-- 1. Setup 3NF Schema
+SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE IF EXISTS Membership;
+DROP TABLE IF EXISTS Students;
+DROP TABLE IF EXISTS Clubs;
+SET FOREIGN_KEY_CHECKS = 1;
+
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    StudentName VARCHAR(100),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE Clubs (
+    ClubID INT PRIMARY KEY,
+    ClubName VARCHAR(100),
+    ClubRoom VARCHAR(50),
+    ClubMentor VARCHAR(100)
+);
+
+CREATE TABLE Membership (
+    MembershipID INT PRIMARY KEY,
+    StudentID INT,
+    ClubID INT,
+    JoinDate DATE,
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+    FOREIGN KEY (ClubID) REFERENCES Clubs(ClubID)
+);
+
+-- 2. Data Insertion (Task 4)
+INSERT INTO Students VALUES (1, 'Asha', 'asha@email.com'), (2, 'Bikash', 'bikash@email.com'), (3, 'Nisha', 'nisha@email.com'), (4, 'Rohan', 'rohan@email.com'), (5, 'Suman', 'suman@email.com'), (6, 'Pooja', 'pooja@email.com'), (7, 'Aman', 'aman@email.com');
+INSERT INTO Clubs VALUES (101, 'Music Club', 'R101', 'Mr. Raman'), (102, 'Sports Club', 'R202', 'Ms. Sita'), (103, 'Drama Club', 'R303', 'Mr. Kiran'), (104, 'Coding Club', 'R404', 'Mr. Anil');
+INSERT INTO Membership VALUES (1,1,101,'2024-01-10'), (2,2,102,'2024-01-12'), (3,1,102,'2024-01-15'), (4,3,101,'2024-01-20'), (5,4,103,'2024-01-18'), (6,5,101,'2024-01-22'), (7,2,103,'2024-01-25'), (8,6,102,'2024-01-27'), (9,3,104,'2024-01-28'), (10,7,104,'2024-01-30');
+
+-- 3. Final Join Query (Task 5)
+SELECT s.StudentName, c.ClubName, m.JoinDate
+FROM Students s
+JOIN Membership m ON s.StudentID = m.StudentID
+JOIN Clubs c ON m.ClubID = c.ClubID;
