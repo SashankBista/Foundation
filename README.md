@@ -11,7 +11,7 @@ This repository contains the database implementation for a Student Club system, 
 The ER Diagram (found in the `/diagrams` folder) illustrates the **Many-to-Many** relationship between Students and Clubs, mediated by the `Membership` associative entity.
 - **Cardinality**: One Student -> Many Memberships; One Club -> Many Memberships.
 
-### SQL Operations (Task 4 & 5)
+### SQL Operations 
 - **Schema Creation**: Tables are built with Foreign Key constraints to maintain referential integrity.
 - **Join Operations**: A three-way join is used to reassemble the normalized data into a human-readable report showing Student Name, Club Name, and Join Date.
 
